@@ -1,0 +1,21 @@
+{
+  "name": "eloquentJsExercices",
+  "version": "0.0.0",
+  "description": "Writen using nodejs. Some with its corresponding tests with nodeunit. http://eloquentjavascript.net/",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node --harmony $(which nodeunit) test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rogithub/eloquentJsExercices.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/rogithub/eloquentJsExercices/issues"
+  }
+}
