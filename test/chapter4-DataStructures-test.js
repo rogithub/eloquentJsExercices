@@ -20,3 +20,14 @@ exports.reverseArrayTest = function(test) {
   test.deepEqual(f.reverseArray(array), [5, 4, 3, 2, 1]);
   test.done();
 }
+
+exports.reverseArrayInPlaceTest = function(test) {
+  test.expect(1);
+  let array = [1, 2, 3, 4, 5];
+  f.reverseArrayInPlace(array);
+  let reversed = [5, 4, 3, 2, 1];
+  
+  test.deepEqual(array, reversed);
+
+  test.done();
+}

@@ -35,6 +35,14 @@ let reverseArray = function(arr) {
   return arrCopy;
 }
 
+let reverseArrayInPlace = function(arr) {
+  let reversed = reverseArray(arr);
+  for(let i = 0; i < reversed.length; i++){
+    arr[i] = reversed[i];
+  } 
+}
+
 exports.range = range;
 exports.sum = sum;
 exports.reverseArray = reverseArray;
+exports.reverseArrayInPlace = reverseArrayInPlace;
