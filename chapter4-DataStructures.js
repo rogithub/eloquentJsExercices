@@ -27,5 +27,14 @@ let sum = function(arr) {
   return counter;
 }
 
+let reverseArray = function(arr) {
+  let arrCopy = [];
+  for(let i = 0; i < arr.length; i++) {
+    arrCopy[i] = arr[(arr.length-1)-i];
+  }
+  return arrCopy;
+}
+
 exports.range = range;
 exports.sum = sum;
+exports.reverseArray = reverseArray;

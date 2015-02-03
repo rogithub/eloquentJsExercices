@@ -13,3 +13,10 @@ exports.rangeStepTest = function(test) {
   test.deepEqual(f.range(5, 2, -1), [5, 4, 3, 2]);
   test.done();
 }
+
+exports.reverseArrayTest = function(test) {
+  test.expect(1);
+  let array = [1, 2, 3, 4, 5];
+  test.deepEqual(f.reverseArray(array), [5, 4, 3, 2, 1]);
+  test.done();
+}

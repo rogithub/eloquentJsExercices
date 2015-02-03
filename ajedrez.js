@@ -1,5 +1,6 @@
 'use strict';
 
+let chez = "";
 for(let fila = 0; fila < 8; fila++) {  
   var linea = "";
   // si es fila non empezar con gato
@@ -12,6 +13,9 @@ for(let fila = 0; fila < 8; fila++) {
     else
       linea += esColumnaPar ? " " : "#";
   }
-  console.log(linea);
-}
+  chez += linea;
+  chez += "\n";
+} 
+
+console.log(chez);
 
