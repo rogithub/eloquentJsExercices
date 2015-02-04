@@ -119,3 +119,49 @@ exports.itemAtTest = function(test) {
   test.deepEqual(f.itemAt(list, 3), undefined);
   test.done();
 }
+
+exports.deepEqualTest = function(test) {
+  test.expect(9);
+
+  let obj1 = [1, 2, 3, 4, 5];
+  let obj2 = [1, 2, 3, 4, 5];
+  
+  let actual = f.deepEqual(obj1, obj2);  
+  test.equal(actual, true);
+  
+  obj2 = [5, 4, 3, 2, 1];
+  actual = f.deepEqual(obj1, obj2);
+  test.equal(actual, false);
+
+  obj1 = "string value";
+  actual = f.deepEqual(obj1, obj2);
+  test.equal(actual, false);
+
+  obj1 = null;
+  actual = f.deepEqual(obj1, obj2);
+  test.equal(actual, false);
+
+  obj1 = null;
+  obj2 = null;
+  actual = f.deepEqual(obj1, obj2);
+  test.equal(actual, true);
+
+  obj1 = { nombre: "rodrigo", edad: 30, array: [1, 2, 3]};
+  obj2 = { nombre: "rodrigo", edad: 30, array: [1, 2, 3]};
+  actual = f.deepEqual(obj1, obj2);
+  test.equal(actual, true);
+  
+  obj2.nombre = "changed name";
+  actual = f.deepEqual(obj1, obj2);
+  test.equal(actual, false);
+
+  obj2.nombre = "rodrigo";
+  actual = f.deepEqual(obj1, obj2);
+  test.equal(actual, true);
+
+
+  obj1.array = [1, 2, 3, 4];
+  actual = f.deepEqual(obj1, obj2);
+  test.equal(actual, false);
+  test.done();  
+}

@@ -102,6 +102,35 @@ let itemAt = function(list, nth) {
   return item;
 }
 
+let deepEqual = function(obj1, obj2) {
+  
+  if (obj1 === null && obj2 === null) return true;
+  if (obj1 && !obj2) return false;
+  if (!obj1 && obj2) return false;
+
+  if(typeof obj1 === "object" && typeof obj2 === "object") {
+    if (obj1 == obj2) return true;    
+           
+    for(var property in obj1) {      
+      if (obj1.hasOwnProperty(property)) {
+        if (!deepEqual(obj1[property], obj2[property]))
+          return false;
+      }
+    } 
+
+    for(var property in obj2) {
+      if (obj2.hasOwnProperty(property)) {
+        if (!deepEqual(obj1[property], obj2[property]))
+          return false;
+      }
+    }
+
+    return true;
+  }
+
+  return obj1 === obj2;
+}
+
 exports.range = range;
 exports.sum = sum;
 exports.reverseArray = reverseArray;
@@ -110,4 +139,5 @@ exports.arrayToList = arrayToList;
 exports.listToArray = listToArray;
 exports.prepend = prepend;
 exports.itemAt = itemAt;
+exports.deepEqual = deepEqual;
 
