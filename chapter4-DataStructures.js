@@ -42,7 +42,72 @@ let reverseArrayInPlace = function(arr) {
   } 
 }
 
+let arrayToList = function(arr) {  
+  let list = {};  
+
+  if (arr.length == 0){
+    return list;
+  }
+
+  if (arr.length === 1) {
+    list.value = arr[0];
+    list.rest = null;
+    return list;    
+  }
+
+  else if (arr.length > 1){
+    list.value = arr[0];
+    arr.splice(0, 1); // remover 1 elemento
+    list.rest = arrayToList(arr);
+  }
+  
+  return list;  
+}
+
+let listToArray = function(list) {
+  var array = [];
+  
+  let getValue = function(item) {
+    if (!item) return;
+
+    array.push(item.value);
+    getValue(item.rest);
+  }
+  
+  getValue(list);
+
+  return array;
+}
+
+let prepend = function(element, list) {
+  // element: { value: 1, rest: list }
+  element.rest = list;
+  return element;
+}
+
+let itemAt = function(list, nth) {
+  let item = undefined;
+  let count = 0;
+
+  let getItem = function(item) {
+    if (!item) return undefined;
+    if (count === nth) {
+      return item;
+    }
+    count++;
+    return getItem(item.rest);
+  }
+  
+  item = getItem(list);
+  return item;
+}
+
 exports.range = range;
 exports.sum = sum;
 exports.reverseArray = reverseArray;
 exports.reverseArrayInPlace = reverseArrayInPlace;
+exports.arrayToList = arrayToList;
+exports.listToArray = listToArray;
+exports.prepend = prepend;
+exports.itemAt = itemAt;
+

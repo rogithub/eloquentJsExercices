@@ -31,3 +31,91 @@ exports.reverseArrayInPlaceTest = function(test) {
 
   test.done();
 }
+
+exports.arrayToListTest = function(test) {
+  test.expect(1);
+  let array = [1, 2, 3];
+  let expected = {
+    value: 1,
+    rest: {
+      value: 2,
+      rest: {
+        value: 3,
+        rest: null
+      }
+    } 
+  };
+  
+  let actual = f.arrayToList(array);
+  test.deepEqual(actual, expected);
+  
+  test.done();
+}
+
+exports.listToArray = function(test) {
+  test.expect(1);
+  let expected = [1, 2, 3];
+  let list = {
+    value: 1,
+    rest: {
+      value: 2,
+      rest: {
+        value: 3,
+        rest: null
+      }
+    }
+  };
+
+  let actual = f.listToArray(list);
+
+  test.deepEqual(actual, expected);  
+  test.done();
+}
+
+exports.prepend = function(test) {
+  test.expect(1);
+
+  let expected = {
+    value: 1,
+    rest: {
+      value: 2,
+      rest: {
+        value: 3,
+        rest: null
+      }
+    }
+  };
+
+  let list = {   
+    value: 2,
+    rest: {
+      value: 3,
+      rest: null
+    }    
+  };
+
+  let actual = f.prepend({ value: 1, rest: null}, list);
+  
+  test.deepEqual(actual, expected);
+  test.done();
+}
+
+exports.itemAtTest = function(test) {
+  test.expect(4);
+  let list = {
+    value: 1,
+    rest: {
+      value: 2,
+      rest: {
+        value: 3,
+        rest: null
+      }
+    }
+  };
+  
+  test.deepEqual(f.itemAt(list, 0), { value: 1, rest: { value: 2, rest: { value: 3, rest: null}}});
+  test.deepEqual(f.itemAt(list, 1), { value: 2, rest: { value: 3, rest: null}});
+  test.deepEqual(f.itemAt(list, 2), { value: 3, rest: null});
+  test.deepEqual(f.itemAt(list, 3), undefined);
+  test.done();
+}
