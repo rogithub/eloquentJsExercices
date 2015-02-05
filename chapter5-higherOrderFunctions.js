@@ -13,13 +13,12 @@ let flatten = function(arr) {
   return flattened;
 }
 
+let average = function(array) {
+  function plus(a, b) { return a + b; }
+  return array.reduce(plus) / array.length;
+}
 
 let motherChildAgeDifference = function() {
-
-  let average = function(array) {
-    function plus(a, b) { return a + b; }
-    return array.reduce(plus) / array.length;
-  }
 
   let byName = function(name) {
     return ancestry.filter(function(person) {
@@ -42,5 +41,33 @@ let motherChildAgeDifference = function() {
 }
 
 
+let historicalLifeExpectancy = function() {
+  let getCentury = function(person) {
+    return Math.ceil(person.died / 100);
+  }
+
+  let items = {};
+  ancestry.forEach(function(person) {
+    let century = "century " + getCentury(person);
+    if (!(century in items)) {
+      items[century] = {
+        ages: [],
+        average: 0
+      };
+    }
+    
+    let item = items[century];
+
+    let age = person.died - person.born;
+    item.ages.push(age);
+
+    //re-calculate average
+    item.average = average(item.ages);
+  }); 
+
+  return items;
+}
+
 exports.flatten = flatten;
 exports.motherChildAgeDifference = motherChildAgeDifference;
+exports.historicalLifeExpectancy = historicalLifeExpectancy;
