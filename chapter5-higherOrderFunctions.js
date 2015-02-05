@@ -1,4 +1,5 @@
 'use strict';
+const ancestry = require("./ancestry.js");
 
 let flatten = function(arr) {
   let newArray = [];
@@ -10,5 +11,8 @@ let flatten = function(arr) {
 
   return flattened;
 }
+
+
+
 
 exports.flatten = flatten;
