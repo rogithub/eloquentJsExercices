@@ -12,4 +12,13 @@ exports.flattenningTest = function(test) {
   test.done(); 
 }
 
+exports.motherChildAgeDifferenceTest = function(test) {
+  test.expect(1);
 
+  let expected = 31.22222222222222; // http://eloquentjavascript.net/code/#5.2
+  let actual = f.motherChildAgeDifference();
+
+  test.equal(actual, expected);
+
+  test.done();
+}
