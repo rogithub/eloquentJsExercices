@@ -1,5 +1,5 @@
 'use strict';
-const f = require('./../chapter4-DataStructures.js');
+const f = require('./../chapter4-dataStructures.js');
 
 exports.sumRangeTest = function(test) {
   test.expect(1); 
