@@ -37,3 +37,29 @@ exports.historicalLifeExpectancyTest = function(test) {
   
   test.done();
 }
+
+exports.everyTest = function(test){
+  test.expect(2);
+  let arr = [1, 2, 3, 4, 5];
+  
+  let actual = f.every(arr, function(n) { return n > 10 });
+  test.equal(actual, false);
+  
+  actual = f.every(arr, function(n) { return n <= 5 });
+  test.equal(actual, true);
+  
+  test.done();
+}
+
+exports.someTest = function(test){
+  test.expect(2);
+  let arr = [1, 2, 3, 4, 5];
+  
+  let actual = f.some(arr, function(n){ return n > 10 });
+  test.equal(actual, false);
+  
+  actual = f.some(arr, function(n){ return n % 2 == 0 });
+  test.equal(actual, true);
+  
+  test.done();
+}

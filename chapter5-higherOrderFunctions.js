@@ -68,6 +68,31 @@ let historicalLifeExpectancy = function() {
   return items;
 }
 
+let every = function(arr, callback){
+  
+  for(let i = 0; i < arr.length; i++){
+      if (!(callback(arr[i]))) {
+        return false;
+      }
+  }
+  return true;
+}
+
+let some = function(arr, callback){
+  
+  for(let i = 0; i < arr.length; i++){
+      if ((callback(arr[i]))) {
+        return true;
+      }
+  }
+  
+  return false;
+  
+}
+
+
 exports.flatten = flatten;
 exports.motherChildAgeDifference = motherChildAgeDifference;
 exports.historicalLifeExpectancy = historicalLifeExpectancy;
+exports.every = every;
+exports.some = some;
