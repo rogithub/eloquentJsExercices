@@ -18,7 +18,7 @@ Object.defineProperty(Vector.prototype, "y", {
 
 Vector.prototype.plus = function(vector) {
     let x = this.x + vector.x;
-    let y = this.x + vector.x;
+    let y = this.y + vector.y;
     let sumVector = new Vector(x, y);
     
     return sumVector;
@@ -26,7 +26,7 @@ Vector.prototype.plus = function(vector) {
 
 Vector.prototype.minus = function(vector) {
     let x = this.x - vector.x;
-    let y = this.x - vector.x;
+    let y = this.y - vector.y;
     let diffVector = new Vector(x, y);
     
     return diffVector;
