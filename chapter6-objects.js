@@ -41,4 +41,20 @@ Vector.prototype.distance = function() {
     return result;
 };
 
+let StretchCell = function (inner, width, height) {
+    this._inner = inner;
+    this._width = width;
+    this._height = height;
+};
+StretchCell.prototype.minWidth = function() {
+  return Math.max(this._width, this._inner.minWidth());
+};
+StretchCell.prototype.minHeight = function() {
+  return Math.max(this._height, this._inner.minHeight());
+};
+StretchCell.prototype.draw = function(width, height) {
+  return this._inner.draw(width, height);
+};
+
 exports.Vector = Vector;
+exports.StretchCell = StretchCell;

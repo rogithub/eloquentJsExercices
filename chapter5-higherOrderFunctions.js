@@ -1,5 +1,5 @@
 'use strict';
-const data = require("./ancestry.js");
+const data = require("./data/ancestry.js");
 const ancestry = JSON.parse(data);
 
 let flatten = function(arr) {

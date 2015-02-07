@@ -16,7 +16,7 @@ let range = function(start, end, step) {
   }
 
   return arr;
-}
+};
 
 let sum = function(arr) {
   var counter = 0;
@@ -25,7 +25,7 @@ let sum = function(arr) {
     counter += arr[i];
 
   return counter;
-}
+};
 
 let reverseArray = function(arr) {
   let arrCopy = [];
@@ -33,14 +33,14 @@ let reverseArray = function(arr) {
     arrCopy[i] = arr[(arr.length-1)-i];
   }
   return arrCopy;
-}
+};
 
 let reverseArrayInPlace = function(arr) {
   let reversed = reverseArray(arr);
   for(let i = 0; i < reversed.length; i++){
     arr[i] = reversed[i];
   } 
-}
+};
 
 let arrayToList = function(arr) {  
   let list = {};  
@@ -62,7 +62,7 @@ let arrayToList = function(arr) {
   }
   
   return list;  
-}
+};
 
 let listToArray = function(list) {
   var array = [];
@@ -72,18 +72,18 @@ let listToArray = function(list) {
 
     array.push(item.value);
     getValue(item.rest);
-  }
+  };
   
   getValue(list);
 
   return array;
-}
+};
 
 let prepend = function(element, list) {
   // element: { value: 1, rest: list }
   element.rest = list;
   return element;
-}
+};
 
 let itemAt = function(list, nth) {
   let item = undefined;
@@ -96,11 +96,11 @@ let itemAt = function(list, nth) {
     }
     count++;
     return getItem(item.rest);
-  }
+  };
   
   item = getItem(list);
   return item;
-}
+};
 
 let deepEqual = function(obj1, obj2) {
   
@@ -129,7 +129,7 @@ let deepEqual = function(obj1, obj2) {
   }
 
   return obj1 === obj2;
-}
+};
 
 exports.range = range;
 exports.sum = sum;
