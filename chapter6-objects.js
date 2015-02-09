@@ -56,5 +56,52 @@ StretchCell.prototype.draw = function(width, height) {
   return this._inner.draw(width, height);
 };
 
+let ArraySeq = function(array) {
+    this.pos = -1;
+    this.array = array;
+};
+
+ArraySeq.prototype.next = function() {
+    this.pos ++;
+    if (this.pos < this.array.length) {
+        return true;
+    }
+    return false;
+};
+
+ArraySeq.prototype.current = function() {
+    return this.array[this.pos];
+};
+
+let RangeSeq = function(from, to) { 
+    this.pos = from - 1;
+    this.to = to;
+};
+
+RangeSeq.prototype.next = function() {
+    if (this.pos < this.to){
+        this.pos++;
+        return true;
+    }
+    return false;
+};
+
+RangeSeq.prototype.current = function() {
+    return this.pos;
+};
+
+function logFive(sequence) {
+  let arr = [];
+  for (var i = 0; i < 5; i++) {
+    if (!sequence.next())
+      break;
+    arr.push(sequence.current());
+  }
+  return arr;
+}
+
 exports.Vector = Vector;
 exports.StretchCell = StretchCell;
+exports.RangeSeq = RangeSeq;
+exports.ArraySeq = ArraySeq;
+exports.logFive = logFive;

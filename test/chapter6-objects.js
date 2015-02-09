@@ -35,4 +35,22 @@ exports.StretchCellTest = function(test) {
     test.deepEqual(cell.draw(3, 2), array);
     
     test.done();
-}
+};
+
+exports.RangeSeqTest = function(test) {
+    test.expect(1);
+    let actual = m.logFive(new m.RangeSeq(100, 1000));
+    let expected = [100, 101, 102, 103, 104];
+    
+    test.deepEqual(actual, expected);
+    test.done();
+};
+
+exports.ArraySeqTest = function(test) {
+    test.expect(1);
+    let actual = m.logFive(new m.ArraySeq([1, 2]));
+    let expected = [1, 2];
+    
+    test.deepEqual(actual, expected);
+    test.done();
+};
