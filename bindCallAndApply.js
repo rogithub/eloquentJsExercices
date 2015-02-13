@@ -28,7 +28,7 @@ var f = function(text) {
     // Note cómo en las funciones de printCall, printApply y printBind,
     // de alguna manera se le manda "persona" a la función "f".
     console.log(text + " Mi nombre es: " + this.nombre);
-}
+};
 
 function printCall(text) {
     // call recibe el contexto que es el objecto a bindear y
