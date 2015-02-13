@@ -9,7 +9,7 @@ function print() {
     
     // Todas las funciones de JavaScript tienen 
     // internamente la variable "arguments"
-    for(var i = 0; i < arguments.length; i++){
+    for(var i = 0; i < arguments.length; i++) {
         console.log(arguments[i]);
     }
 }
